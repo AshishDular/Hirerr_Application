@@ -16,9 +16,7 @@ function Gigs() {
     <>
       <div className="gigs">
         <div className="container">
-          <span className="breadcrumbs">
-            HIRERR &gt GRAPHICS &gt DESIGN &gt
-          </span>
+          <span className="breadcrumbs">HIRERR > GRAPHICS > DESIGN ></span>
           <h1>AI Artist</h1>
           <p>
             Explore the boundaries of art and technology with Hirerr's AI
