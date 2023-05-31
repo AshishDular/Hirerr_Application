@@ -34,8 +34,8 @@ function Footer() {
             <h2>Support</h2>
             <span>Help & Support</span>
             <span>Trust & Safety</span>
-            <span>Selling on Hirerr</span>
-            <span>Buying on Hirerr</span>
+            <span>Selling on Fiverr</span>
+            <span>Buying on Fiverr</span>
           </div>
           <div className="item">
             <h2>Community</h2>

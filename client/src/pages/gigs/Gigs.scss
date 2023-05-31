@@ -1,4 +1,5 @@
 .gigs {
+  width: 100%;
   display: flex;
   justify-content: center;
 
@@ -11,8 +12,12 @@
 
     .breadcrumbs {
       font-weight: 300;
+      text-transform: uppercase;
       font-size: 13px;
       color: #555;
+    }
+
+    h1 {
     }
 
     p {
@@ -24,6 +29,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 20px;
 
       .left {
         display: flex;
@@ -34,29 +40,31 @@
 
         input {
           padding: 5px;
-          border: 1px solid lightgray;
+          border: 1px solid lightgrey;
+          border-radius: 5px;
           outline: none;
 
           &::placeholder {
-            color: gray;
+            color: #999;
           }
         }
 
         button {
+          padding: 5px 10px;
           background-color: #1dbf73;
           color: white;
-          font-weight: 500;
           border: none;
-          cursor: pointer;
-          padding: 5px 10px;
+          font-weight: 500;
           border-radius: 5px;
+          cursor: pointer;
         }
       }
+
       .right {
+        position: relative;
         display: flex;
         align-items: center;
         gap: 10px;
-        position: relative;
 
         .sortBy {
           color: #555;
@@ -75,11 +83,12 @@
         .rightMenu {
           padding: 20px;
           background-color: white;
+          border: 0.5px solid lightgrey;
           border-radius: 5px;
-          border: 0.5px solid lightgray;
           position: absolute;
           top: 30px;
           right: 0;
+          z-index: 9;
           display: flex;
           flex-direction: column;
           gap: 20px;
@@ -91,10 +100,11 @@
         }
       }
     }
+
     .cards {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
   }
 }

@@ -1,6 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import createError from "../utils/createError.js";
 
 export const register = async (req, res, next) => {
   try {
@@ -21,13 +22,11 @@ export const login = async (req, res, next) => {
   try {
     const user = await User.findOne({ username: req.body.username });
 
-    const err = new Error();
-    err.status = 404;
-    err.message = "User not found!";
+    if (!user) return next(createError(404, "User not found!"));
 
-    if (!user) return next(err);
     const isCorrect = bcrypt.compareSync(req.body.password, user.password);
-    if (!isCorrect) return res.status(400).send("Wrong password or username!");
+    if (!isCorrect)
+      return next(createError(400, "Wrong password or username!"));
 
     const token = jwt.sign(
       {
@@ -45,8 +44,16 @@ export const login = async (req, res, next) => {
       .status(200)
       .send(info);
   } catch (err) {
-    res.status(500).send("something went wrong");
+    next(err);
   }
 };
 
-export const logout = (req, res) => {};
+export const logout = (req, res) => {
+  res
+    .clearCookie("accessToken", {
+      sameSite: "none",
+      secure: true,
+    })
+    .status(200)
+    .send("User has been logged out!");
+};
